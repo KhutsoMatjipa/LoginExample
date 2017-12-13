@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="row main">
+    <h5>Personal Information</h5>
+    <form class="" (ngSubmit)="onNext(userName.value, userSurname.value, userEmail.value, userTel.value, userAge.value, gender.value)"
+      #f="ngForm">
+      <div class="form-group">
+        <label for="name" class="cols-sm-2 control-label">Name</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Enter Name" ngModel #userName="ngModel" required
+              pattern="^[a-zA-Z ]*$" />
+            <div *ngIf="userName.errors?.required && userName.touched" class="error">
+              Name is required
+            </div>
+            <div *ngIf="userName.errors?.pattern" class="error">
+              Enter Valid name
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="username" class="cols-sm-2 control-label">Surname</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <input type="text" class="form-control" name="surname" id="surname" placeholder="Enter surname" ngModel #userSurname="ngModel"
+              required pattern="^[a-zA-Z ]*$" />
+            <div *ngIf="userSurname.errors?.required && userSurname.touched" class="error">
+              Surname is required
+            </div>
+            <div *ngIf="userSurname.errors?.pattern" class="error">
+              Enter Valid surname
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="cols-sm-2 control-label">Email</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <input type="text" class="form-control" name="email" id="email" placeholder="Enter Email" ngModel #userEmail="ngModel" required
+              pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" />
+            <div *ngIf="userEmail.errors?.required && userEmail.touched" class="error">
+              Email is required
+            </div>
+            <div *ngIf="userEmail.errors?.pattern" class="error">
+              Enter Valid email
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="cols-sm-2 control-label">Telephone</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <input type="text" class="form-control" name="telephone" id="telephone" placeholder="Enter tel" ngModel #userTel="ngModel"
+              required maxlength="10" pattern="\d*" />
+            <div *ngIf="userTel.errors?.required && userTel.touched" class="error">
+              Telephone is required
+            </div>
+            <div *ngIf="userTel.errors?.pattern" class="error">
+              Enter Valid Tel
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirm" class="cols-sm-2 control-label">Age</label>
+        <div class="cols-sm-10">
+          <div class="input-group">
+            <input type="text" class="form-control" name="age" id="age" placeholder="Enter age" ngModel #userAge="ngModel" required pattern="\d*"
+            />
+            <div *ngIf="userAge.errors?.required && userAge.touched" class="error">
+              Age is required
+            </div>
+            <div *ngIf="userAge.errors?.pattern" class="error">
+              Enter Valid age
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="confirm" class="cols-sm-2 control-label">Gender</label>
+        <div class="cols-sm-10">
+          <div>
+            <input type="radio" name="gender" id="male" value="Male" ngModel #gender="ngModel" required/>Male
+            <input type="radio" name="gender" id="female" value="Female" ngModel #gender="ngModel" required/>Female
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group ">
+        <button type="submit" [disabled]="f.invalid" class="btn btn-primary">Next</button>
+      </div>
+
+    </form>
+  </div>
+</div>

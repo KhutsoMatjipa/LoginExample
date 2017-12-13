@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row main">
+    <h5>Work History</h5>
+    <form class="" novalidate (ngSubmit)="onNext(userEmployer.value, userTitle.value, userDescription.value)" #f="ngForm">
+      <div ngModelGroup="work">
+        <h1>From Personal {{name}}</h1>
+        <div class="form-group">
+          <label for="name" class="cols-sm-2 control-label">Employer</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <input type="text" class="form-control" name="employer" id="employer" placeholder="Enter employer" ngModel #userEmployer="ngModel"
+                required pattern="^[a-zA-Z ]*$" />
+              <div *ngIf="userEmployer.errors?.required && userEmployer.touched" class="error">
+                Employer is required
+              </div>
+              <div *ngIf="userEmployer.errors?.pattern" class="error">
+                Enter Valid Employer
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username" class="cols-sm-2 control-label">Job Title</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <input type="text" class="form-control" name="title" id="title" placeholder="Enter job title" ngModel #userTitle="ngModel"
+                required pattern="^[a-zA-Z ]*$" />
+              <div *ngIf="userTitle.errors?.required && userTitle.touched" class="error">
+                Job title is required
+              </div>
+              <div *ngIf="userTitle.errors?.pattern" class="error">
+                Enter Valid job title
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="cols-sm-2 control-label">Job Description</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <input type="text" class="form-control" name="description" id="description" placeholder="Enter job description" ngModel #userDescription="ngModel"
+                required pattern="^[a-zA-Z ]*$" />
+              <div *ngIf="userDescription.errors?.required && userDescription.touched" class="error">
+                Job Description is required
+              </div>
+              <div *ngIf="userDescription.errors?.pattern" class="error">
+                Enter Valid Job Description
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="cols-sm-2 control-label">Date</label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group ">
+          <button type="submit" [disabled]="f.invalid" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

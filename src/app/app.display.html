@@ -1,0 +1,13 @@
+<div>
+    <form>
+        <div *ngIf="!show; else elseBlock">Click to show Details</div>
+        <button (click)="show = !show" class="btn">{{show ? 'hide' : 'show'}}</button>
+        <ng-template #elseBlock>
+            <ul>
+                <li *ngFor="let entry of user | users">
+                    {{entry.x}} : {{entry.value }}
+                </li>
+            </ul>
+        </ng-template>
+    </form>
+</div>
